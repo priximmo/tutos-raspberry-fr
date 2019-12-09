@@ -1,41 +1,35 @@
+%titles RPI - Create Users
+%author: xavki
+
+# Raspberry : gestion des users
+
+
+<br>
 - name: deploy users
   hosts: all
   become: yes
   vars:
-    users_admin:
+    users:
     - "xavki"
-    users_no_admin:
-    - "xavier"
   tasks:
   - name: create group admin
     group:
       name: "admin"
-      state: present
-
-  - name: create admin user accounts
+      state: present    
+  - name: create user accounts
     user:
       name: "{{ item }}"
       groups: "admin"
-    with_items:
-    - "{{ users_admin }}"
- 
-  - name: create standard user accounts
-    user:
-      name: "{{ item }}"
-    with_items:
-    - "{{ users_no_admin }}"
-
+    with_items: "{{ users }}"
   - name: add authorized keys
     authorized_key:
       user: "{{ item }}"
       key: "{{ lookup('file', 'files/'+ item + '.key.pub') }}"
-    with_items: 
-    - "{{ users_admin }}"
-    - "{{ users_no_admin }}"
- 
+    with_items: "{{ users }}"
   - name: "Allow admin users to sudo without a password"
     lineinfile:
       dest: "/etc/sudoers"
       state: "present"
       regexp: "^%sudo"
       line: "%admin ALL=(ALL) NOPASSWD: ALL"
+
