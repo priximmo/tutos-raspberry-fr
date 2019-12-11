@@ -1,0 +1,9 @@
+all:
+  children:
+    door:
+      hosts:
+        192.168.1.31:
+    back:
+      hosts:
+        192.168.1.41:
+        192.168.1.42:
