@@ -1,0 +1,2 @@
+users_password_xavki: "{{ vault_users_password_xavki }}"
+users_password_xavier: "{{ vault_users_password_xavier }}"
