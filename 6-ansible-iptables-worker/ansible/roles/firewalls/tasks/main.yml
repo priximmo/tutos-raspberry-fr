@@ -1,23 +1,42 @@
-
-- name: iptables persistent
+- name: persistent rules
   apt:
     name: iptables-persistent
-    state: present 
+    state: present
 
-- name: only me
+- name: for bastion
   iptables:
     chain: INPUT
     protocol: tcp
     destination_port: 22
     source: 192.168.1.1/24
     jump: ACCEPT
+  when: bastion is defined
 
-- name: specific
+- name: for workers
+  iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_port: 22
+    source: 192.168.1.31
+    jump: ACCEPT
+  when: bastion is not defined
+
+- name: remove ssh output access if exist
+  iptables:
+    chain: OUTPUT
+    protocol: tcp
+    destination_port: 22
+    jump: DROP
+  when: bastion is not defined
+
+- name: bastion can go everywhere with ssh
   iptables:
     chain: OUTPUT
     protocol: tcp
     destination_port: 22
     jump: ACCEPT
+    state: present
+  when: bastion is defined
 
 - name: icmp accept
   iptables:
@@ -60,3 +79,4 @@
 
 - name: persistent rules
   shell: iptables-save > /etc/iptables/rules.v4
+
