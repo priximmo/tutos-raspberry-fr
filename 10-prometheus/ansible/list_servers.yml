@@ -1,0 +1,15 @@
+all:
+  children:
+    door:
+      hosts:
+        192.168.1.31:
+          bastion: true
+    back:
+      hosts:
+        192.168.1.41:
+        192.168.1.42:
+        192.168.1.43:
+      children:
+        prometheus:
+          hosts:
+            192.168.1.44:

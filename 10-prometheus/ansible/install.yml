@@ -1,0 +1,13 @@
+- name: deploy users
+  become: yes
+  hosts: all
+  roles:
+  - users
+  - firewalls
+  - monitoring-custom
+
+- name: prometheus
+  become: yes
+  hosts: prometheus
+  roles:
+  - prometheus

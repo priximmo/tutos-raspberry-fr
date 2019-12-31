@@ -1,0 +1,11 @@
+users_password_xavki: "{{ vault_users_password_xavki }}"
+users_password_xavier: "{{ vault_users_password_xavier }}"
+users_admin:
+- { name: "xavki", password: "{{ vault_users_password_xavki }}" }
+users_no_admin:
+- { name: "xavier", password: "{{ vault_users_password_xavier }}" }
+
+firewalls_rules_input:
+ - { protocol: "all", src_ip: "192.168.1.44", src_port: "11111", state: "present" } #metrics: custom route
+ - { protocol: "all", src_ip: "192.168.1.1/24", src_port: "9090", state: "present" } #prometheus GUI
+
