@@ -4,3 +4,4 @@
   roles:
   - users
   - firewalls
+  - monitoring-custom

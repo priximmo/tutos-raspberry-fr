@@ -96,4 +96,3 @@
 
 - name: persistent rules
   shell: iptables-save > /etc/iptables/rules.v4
-

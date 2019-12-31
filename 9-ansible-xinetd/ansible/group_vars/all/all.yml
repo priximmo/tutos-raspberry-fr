@@ -5,3 +5,6 @@ users_admin:
 users_no_admin:
 - { name: "xavier", password: "{{ vault_users_password_xavier }}" }
 
+firewalls_rules_input:
+ - { protocol: "all", src_ip: "192.168.1.44", src_port: "11111", state: "present" } #metrics: custom route
+
