@@ -5,8 +5,8 @@ service temp_pi
   socket_type = stream
   wait = no
   user = root
-  server = /home/pi/scripts/wrapper.sh
-  server_args = temppi
+  server = /home/pi/scripts/wrapper_metrics.sh
+  server_args = temperature.sh
   disable = no
   only_from = 0.0.0.0/0
   log_type = FILE /dev/null
