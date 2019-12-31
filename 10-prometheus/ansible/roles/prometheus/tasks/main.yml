@@ -5,4 +5,16 @@
     name: prometheus
     state: present
 
+- name: add configuration file
+  template:
+    src: prometheus.yml.j2
+    dest: /etc/prometheus/prometheus.yml
+    mode: 0644
+    owner: root
+    group: root
+  notify: restart_prometheus
 
+- name: start prometheus
+  service:
+    name: prometheus
+    state: started
