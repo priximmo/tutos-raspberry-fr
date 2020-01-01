@@ -1,0 +1,5 @@
+firewalls_rules_input:
+ - { protocol: "all", src_ip: "192.168.1.44", src_port: "11111", state: "present" } #metrics: custom route
+ - { protocol: "all", src_ip: "192.168.1.1/24", src_port: "9090", state: "present" } #prometheus GUI
+ - { protocol: "all", src_ip: "192.168.1.1/24", src_port: "3000", state: "present" } #grafana GUI
+
