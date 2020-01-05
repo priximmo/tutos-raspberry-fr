@@ -1,0 +1,41 @@
+- name: install xinetd
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+    name: xinetd
+    state: present
+
+- name: create directory /opt/scripts
+  file:
+    path: "/opt/scripts/"
+    state: directory
+    mode: 0755
+    owner: root
+
+- name: script temperature.sh
+  template:
+    src: temperature.sh.j2
+    dest: /opt/scripts/temperature.sh
+    mode: 0755
+    owner: root
+
+- name: script wrapper_metrics.sh
+  template:
+    src: wrapper_metrics.sh.j2
+    dest: /opt/scripts/wrapper_metrics.sh
+    mode: 0755
+    owner: root
+
+- name: service xinetd rpi_metrics
+  template:
+    src: rpi_metrics.j2
+    dest: /etc/xinetd.d/rpi_metrics
+    mode: 0644
+    owner: root
+  notify: xinetd_restart
+
+- name: start xinetd
+  service:
+    name: xinetd
+    state: started
+

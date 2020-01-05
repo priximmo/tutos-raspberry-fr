@@ -1,0 +1,16 @@
+- name: deploy users
+  become: yes
+  hosts: all
+  roles:
+  - users
+  - firewalls
+  - monitoring-custom
+  - etc-hosts
+  - node-exporter
+
+- name: monitoring-gui
+  become: yes
+  hosts: monitoring-gui
+  roles:
+  - prometheus
+  - grafana
