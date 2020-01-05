@@ -14,7 +14,7 @@ all:
         pi3:
           ansible_host: 192.168.1.43
       children:
-        prometheus:
+        monitoring-gui:
           hosts:
             pi4:
               ansible_host: 192.168.1.44

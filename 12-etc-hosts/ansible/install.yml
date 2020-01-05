@@ -7,8 +7,9 @@
   - monitoring-custom
   - etc-hosts
 
-- name: prometheus
+- name: monitoring-gui
   become: yes
-  hosts: prometheus
+  hosts: monitoring-gui
   roles:
   - prometheus
+  - grafana
