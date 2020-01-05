@@ -1,0 +1,11 @@
+- name: Edit /etc/hosts
+  debug:
+    msg: "{{ hostvars[item].ansible_host }} {{ item }}"
+  with_items: "{{ groups['all'] }}"
+
+- name: edit /etc/hosts for dns
+  lineinfile:
+    dest: /etc/hosts
+    regexp: '.*{{ item }}$'
+    line: "{{ hostvars[item].ansible_host }} {{ item }}"
+  with_items: "{{ groups['all'] }}"
