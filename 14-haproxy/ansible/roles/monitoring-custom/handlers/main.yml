@@ -1,0 +1,5 @@
+
+- name: xinetd_restart
+  service:
+    name: xinetd
+    state: restarted

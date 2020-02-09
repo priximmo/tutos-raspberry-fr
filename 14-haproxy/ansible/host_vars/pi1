@@ -1,0 +1,7 @@
+firewalls_rules_input:
+ - { protocol: "all", src_ip: "192.168.1.44", src_port: "11111", state: "present" } #metrics: custom route
+ - { protocol: "all", src_ip: "192.168.1.44", src_port: "9100", state: "present" } #metrics: node exporter
+ - { protocol: "all", src_ip: "0.0.0.0/0", src_port: "80", state: "present" } #haproxy http
+ - { protocol: "all", src_ip: "0.0.0.0/0", src_port: "443", state: "present" } #haproxy https
+ - { protocol: "all", src_ip: "192.168.1.1/24", src_port: "8888", state: "present" } #haproxy gui
+
