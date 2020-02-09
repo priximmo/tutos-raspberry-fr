@@ -1,0 +1,18 @@
+#!/bin/bash
+
+## Renouvllement du certificat
+
+
+echo "START"
+
+echo "GÃnÃration du nouveau cert..."
+certbot renew --force-renewal --tls-sni-01-port=7777
+
+echo "Concatï¿½nation..."
+cat /etc/letsencrypt/live/{{ letsencrypt_domain }}/fullchain.pem /etc/letsencrypt/live/{{ letsencrypt_domain }}/privkey.pem >/etc/haproxy/certs/{{ letsencrypt_domain }}.pem
+
+echo "Reload haproxy..."
+service haproxy reload
+
+echo "END"
+

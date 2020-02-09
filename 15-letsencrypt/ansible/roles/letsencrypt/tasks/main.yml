@@ -1,0 +1,33 @@
+
+- name: install certbot
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+    name: certbot
+    state: present
+
+- name: check if certs is already exist
+  stat:
+    path: /etc/letsencrypt/live/{{ letsencrypt_domain }}
+  register: _svc_certs
+
+- name: install cert if not exist
+  shell: certbot certonly --standalone --agree-tos --email {{ letsencrypt_email }} --preferred-challenges http --http-01-port 7777 -d {{ letsencrypt_domain }} -d www.{{ letsencrypt_domain }}
+  when: _svc_certs.stat.exists == false
+
+- name: concat cert files for haproxy
+  shell: cat /etc/letsencrypt/live//{{ letsencrypt_domain }}/fullchain.pem /etc/letsencrypt/live/{{ letsencrypt_domain }}/privkey.pem >/etc/haproxy/certs/{{ letsencrypt_domain }}.pem
+  when: _svc_certs.stat.exists == false
+  notify: haproxy_reload
+
+- name: add script for renew cert
+  template:
+    src: renew-certs.sh.j2
+    dest: /opt/scripts/renew-certs.sh
+
+- name: add cron for renew
+  template:
+    src: renew-certbot.j2
+    dest: /etc/cron.d/renew-certbot
+
+

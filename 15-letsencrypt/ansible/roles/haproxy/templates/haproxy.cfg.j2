@@ -38,12 +38,21 @@ listen stats
 
 frontend front_all
         bind *:80
+	bind :443 ssl crt /etc/haproxy/certs alpn h2,http/1.1
+	http-request redirect scheme https code 301 if { hdr(Host) -i xavki.fr } !{ ssl_fc }
+
         acl is_grafana path_beg -i /grafana
         use_backend back_grafana if is_grafana
+
+	acl acme_challenge path_beg /.well-known/acme-challenge/
+	use_backend certbot if acme_challenge
 
 backend back_grafana
         balance roundrobin
         reqrep ^([^\ ]*\ /)grafana[/]?(.*)     \1\2
-        server prometheus pi4:3000
+        server grafana pi4:3000
 
+backend certbot
+	mode http
+	server ssl_certbot 127.0.0.1:7777
 
