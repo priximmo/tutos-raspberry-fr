@@ -1,0 +1,22 @@
+# RASPBERRY - ANSIBLE - PROMETHEUS - GRAFANA - IPTABLES : Tutoriels FR
+
+- 1. [Raspberry Pi - 1. Ansible : créez vos users et poussez vos clefs ssh | tutos fr](https://www.youtube.com/watch?v=pHeZ8UlAQ_8)
+- 2. [Raspberry Pi - 2. Ansible : gestion des passwords des users avec vault](https://www.youtube.com/watch?v=I1tcLub6_-o)
+- 3. [Raspberry Pi - 3. Ansible : suppression du user Pi et roles](https://www.youtube.com/watch?v=RHSjqctIt1Y)
+- 4. [Raspberry Pi - 5. Ansible : règles iptables, déploiement automatique (rebond)](https://www.youtube.com/watch?v=T1Sh77qT03U)
+- 5. [Raspberry Pi - 4. Iptables : sécurisez votre raspbi | tutos fr](https://www.youtube.com/watch?v=pKt7ZNCOkEc)
+- 6. [Raspberry Pi - 6. Ansible : règles iptables pour workers](https://www.youtube.com/watch?v=9GloIqQAeIs)
+- 7. [Raspberry Pi - 7. Monitoring : prometheus - ex script température CPU](https://www.youtube.com/watch?v=dOpbAF57PKE)
+- 8. [Raspberry Pi - 8. Monitoring : xinetd pour prometheus](https://www.youtube.com/watch?v=Vw_vkDPV-F4)
+- 9. [Raspberry Pi - 9. Monitoring / Ansible : déployer automatiquement xinetd et scripts](https://www.youtube.com/watch?v=Rzkr-JcJS2g)
+- 10. [Raspberry Pi - 10. Monitoring - Prometheus : installation et configuration avec ansible](https://www.youtube.com/watch?v=mfuoAIzARoQ)
+- 11. [Raspberry Pi - 11. GRAFANA : installation avec ansible](https://www.youtube.com/watch?v=KYMs7ACgD8Q)
+- 12. [Raspberry Pi - 12. DNS : édition de /etc/hosts avec ansible](https://www.youtube.com/watch?v=aEujhbUNON4)
+- 13. [Raspberry Pi - 13. Node Exporter : installation avec ansible + prometheus/grafana](https://www.youtube.com/watch?v=cQ1hoGmiLEE)
+- 14. [Raspberry Pi - 14. Haproxy/Ansible : mise en place de routes et d'un nom de domaine](https://www.youtube.com/watch?v=DBW5Rpp1Ku4)
+- 15. [Raspberry Pi - 15. Let's Encrypt : automatiser sa mise en place avec ansible/haproxy | tutos fr](https://www.youtube.com/watch?v=wRsheXLh4QY)
+- 16. [PiKub - 0. Kubernetes et Raspberry : le projet et merci !!](https://www.youtube.com/watch?v=ckG0CtCxtrM)
+- 17. [KubPi - 1. Montage de la tour de raspberry et cablage](https://www.youtube.com/watch?v=zNp1ExLQBh4)
+- 18. [Kubpi - 2. Installation OS, ssh et ip statique (astuce sans écran)](https://www.youtube.com/watch?v=l-HXKa39_e0)
+- 19. [KubPi - 3. Kubernetes par ansible sur les Raspberry](https://www.youtube.com/watch?v=MseiMBXmNzY)
+
