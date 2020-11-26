@@ -5,6 +5,8 @@
 
 
 <br>
+
+
 PROMETHEUS
 
 * base de données timeseries
@@ -12,6 +14,8 @@ PROMETHEUS
 * scarpping à intervalle de temps
 
 <br>
+
+
 * installation de prometheus
 
 ```
@@ -40,6 +44,8 @@ rule_files:
 # Monitoring : installation Prometheus / Grafana
 
 <br>
+
+
 GRAFANA
 
 * dashboarding
@@ -49,6 +55,8 @@ GRAFANA
 * multi-db : prometheus, influxdb, postgres, mysq, elasticsearch...
 
 <br>
+
+
 * installation de grafana
 
 ```
